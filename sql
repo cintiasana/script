@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`persona` (
   `codepen` LONGTEXT NULL,
   `usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`, `usuario_id`),
-  INDEX `fk_persona_usuario_idx` (`usuario_id` ASC) VISIBLE,
+  INDEX `fk_persona_usuario_idx` (`usuario_id` ASC),
   CONSTRAINT `fk_persona_usuario`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `mydb`.`usuario` (`id`)
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`experiencia` (
   `persona_id` INT NOT NULL,
   `persona_usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`, `persona_id`, `persona_usuario_id`),
-  INDEX `fk_experiencia_persona1_idx` (`persona_id` ASC, `persona_usuario_id` ASC) VISIBLE,
+  INDEX `fk_experiencia_persona1_idx` (`persona_id` ASC, `persona_usuario_id` ASC),
   CONSTRAINT `fk_experiencia_persona1`
     FOREIGN KEY (`persona_id` , `persona_usuario_id`)
     REFERENCES `mydb`.`persona` (`id` , `usuario_id`)
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`educacion` (
   `persona_id` INT NOT NULL,
   `persona_usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`, `persona_id`, `persona_usuario_id`),
-  INDEX `fk_educacion_persona1_idx` (`persona_id` ASC, `persona_usuario_id` ASC) VISIBLE,
+  INDEX `fk_educacion_persona1_idx` (`persona_id` ASC, `persona_usuario_id` ASC),
   CONSTRAINT `fk_educacion_persona1`
     FOREIGN KEY (`persona_id` , `persona_usuario_id`)
     REFERENCES `mydb`.`persona` (`id` , `usuario_id`)
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`habilidad` (
   `persona_id` INT NOT NULL,
   `persona_usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`, `persona_id`, `persona_usuario_id`),
-  INDEX `fk_habilidad_persona1_idx` (`persona_id` ASC, `persona_usuario_id` ASC) VISIBLE,
+  INDEX `fk_habilidad_persona1_idx` (`persona_id` ASC, `persona_usuario_id` ASC),
   CONSTRAINT `fk_habilidad_persona1`
     FOREIGN KEY (`persona_id` , `persona_usuario_id`)
     REFERENCES `mydb`.`persona` (`id` , `usuario_id`)
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`proyecto` (
   `persona_id` INT NOT NULL,
   `persona_usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`, `persona_id`, `persona_usuario_id`),
-  INDEX `fk_proyecto_persona1_idx` (`persona_id` ASC, `persona_usuario_id` ASC) VISIBLE,
+  INDEX `fk_proyecto_persona1_idx` (`persona_id` ASC, `persona_usuario_id` ASC),
   CONSTRAINT `fk_proyecto_persona1`
     FOREIGN KEY (`persona_id` , `persona_usuario_id`)
     REFERENCES `mydb`.`persona` (`id` , `usuario_id`)
